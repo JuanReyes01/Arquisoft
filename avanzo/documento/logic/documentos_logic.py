@@ -12,3 +12,8 @@ def update_documento(var_pk, var_documento):
     documento.cuentaBancaria = var_documento.cuentaBancaria
     documento.save()
     return documento
+
+def validar_documento(var_documento, var_criterios):
+    if var_documento.salario < var_criterios.umbral:
+        return False
+    return True
