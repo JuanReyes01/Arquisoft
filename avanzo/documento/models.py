@@ -7,6 +7,6 @@ class Documento(models.Model):
     fecha = models.DateField()
     saldo = models.FloatField()
     cuentaBancaria = models.FloatField()
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default = None)
+    #cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default = None)
     def __str__(self):
         return self.nombre
