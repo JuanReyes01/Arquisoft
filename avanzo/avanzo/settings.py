@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cliente',
     'documento',
     'solicitud',
+    'criterios',
 ]
 
 MIDDLEWARE = [
