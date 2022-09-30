@@ -10,4 +10,4 @@ class Cliente(models.Model):
     password = models.CharField(max_length = 50, null = False, blank = False)
     
     def __str__(self):
-        return '%s'+': '+ '%s' % (self.nombre,self.cedula)
+        return '%s %s' % (self.nombre,self.cedula)
