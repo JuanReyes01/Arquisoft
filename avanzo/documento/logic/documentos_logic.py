@@ -17,3 +17,14 @@ def validar_documento(var_documento, var_criterios):
     if var_documento.salario < var_criterios.umbral:
         return False
     return True
+
+def create_documento(var_documento):
+    cliente = Cliente.objects.get(pk=var_documento["cliente"])
+    documento = Documento(
+        nombre=var_documento["nombre"], 
+        tipo=var_documento["tipo"], 
+        fecha=var_documento["fecha"], 
+        saldo=var_documento["saldo"], 
+        cuentaBancaria=var_documento["cuentaBancaria"], 
+        cliente=cliente)
+    return documento
