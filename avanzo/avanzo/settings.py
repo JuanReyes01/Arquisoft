@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2w&ky2std!7p3!wi%i!q#m*63h*ok!2qsf0z!719b9dngr-c71'
+SECRET_KEY = 'django-insecure-q@16^s*!f$v88yhxoois2g0sg*!bxyx%l1=i08_-nfn=99usuu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,12 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cliente',
-    'documento',
-    'solicitud',
-    'archivosolicitud',
+    'clientes',
+    'documentos',
+    'solicitudes',
+    'archivosSolicitud',
     'criterios',
-
 ]
 
 MIDDLEWARE = [
@@ -130,15 +128,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "avanzo/static")
-]
-
-# acá se van a guardar los archivos subidos!
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_files")
-# '/tmp/media/django/'
-
-MEDIA_URL = '/uploaded_files/'

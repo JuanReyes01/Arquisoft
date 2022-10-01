@@ -1,4 +1,4 @@
-from avanzo.documento.models import Documento
+#from avanzo.documentos.models import Documento
 from ..models import Criterio
 
 def get_criterios():
@@ -15,9 +15,9 @@ def update_criterio(var_pk, var_criterio):
     return criterio
 
 def create_criterio(var_criterio):
-    documentoe = Documento.objects.get(pk=var_criterio["documento"])
+    #documentoe = Documento.objects.get(pk=var_criterio["documento"])
     criterio = Criterio(
         nombre=var_criterio["nombre"], 
-        umbral=var_criterio["umbral"],
-        documento=documentoe)
+        umbral=var_criterio["umbral"])
+        #documento=documentoe)
     return criterio
