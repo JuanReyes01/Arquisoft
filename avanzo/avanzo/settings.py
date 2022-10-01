@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'documento',
     'solicitud',
     'archivosolicitud',
+    'criterios',
+
 ]
 
 MIDDLEWARE = [

@@ -22,4 +22,9 @@ urlpatterns = [
     #path('upload/', views.upload),
     path('archivos/', include('archivosolicitud.urls')),
     #path('solicitudes/', include('solicitud.urls')),
+    path('criterios/', include('criterios.urls')),
+
+    
+
 ]
+
