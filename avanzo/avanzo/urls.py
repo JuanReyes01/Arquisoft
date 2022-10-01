@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from archivosolicitud import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',  views.home),
-    path('documentos/', include('documento.urls')),
-    path('clientes/', include('cliente.urls')),
-    path('solicitudes/', include('solicitud.urls')),
+    #path('upload/', views.upload),
+    path('archivos/', include('archivosolicitud.urls')),
+    #path('solicitudes/', include('solicitud.urls')),
     path('criterios/', include('criterios.urls')),
+
+    
+
 ]
 

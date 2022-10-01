@@ -1,4 +1,3 @@
-from statistics import correlation
 from django.db import models
 
 class Cliente(models.Model):
