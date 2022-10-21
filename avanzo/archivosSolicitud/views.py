@@ -1,3 +1,5 @@
+from random import randint
+import time
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
@@ -33,7 +35,8 @@ def upload(request):
             "nombre": uploaded_file.name,
             "archivo": url
         }
-
+        t = randint(150,180)
+        time.sleep(t)
         archivo_dto = al.create_archivo(json_archivo)
         archivo = serializers.serialize('json', [archivo_dto,])
 
