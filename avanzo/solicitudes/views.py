@@ -6,12 +6,15 @@ from django.core import serializers
 import json
 
 from .logic import solicitudes_logic as st
+from django.contrib.auth.decorators import login_required
+from monitoring.auth0backend import getRole
 
 # Create your views here.
 
 @csrf_exempt
 def solicitudes_view(request):
-    if request.method == 'GET':
+    role = getRole(request)
+    if request.method == 'GET' and role == "analista":
         id = request.GET.get('id', None)
         if id:
             solicitud_dto = st.get_solicitud(id)
@@ -23,7 +26,7 @@ def solicitudes_view(request):
             return HttpResponse(solicitudes, 'application/json')
 
     context = {}
-    if request.method == 'POST':
+    if request.method == 'POST' and role == "analista":
         uploaded_file = request.FILES['document']
         file_system_storage = FileSystemStorage()
         file_name = file_system_storage.save(uploaded_file.name, uploaded_file)
@@ -34,17 +37,20 @@ def solicitudes_view(request):
 
 @csrf_exempt
 def solicitud_view(request, pk):
-    if request.method == 'GET':
+    
+    role = getRole(request)
+    
+    if request.method == 'GET' and role == "analista":
         solicitud_dto = st.get_solicitud(pk)
         solicitud = serializers.serialize('json', [solicitud_dto,])
         return HttpResponse(solicitud, 'application/json')
     
-    if request.method == 'PUT':
+    if request.method == 'PUT' and role == "analista":
         solicitud_dto = st.update_solicitud(pk, json.loads(request.body))
         solicitud = serializers.serialize('json', [solicitud_dto,])
         return HttpResponse(solicitud, 'application/json')
 
-    if request.method == 'DELETE':
+    if request.method == 'DELETE' and role == "analista":
         st.delete_solicitud(pk)
         return HttpResponse('Solicitud eliminada', 'application/json')
     
