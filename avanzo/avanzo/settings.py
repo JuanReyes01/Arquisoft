@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'archivosSolicitud',
     'criterios',
     'usuarios',
-    'social_django',
 ]
 
 MIDDLEWARE = [
