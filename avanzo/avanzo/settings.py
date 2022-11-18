@@ -102,7 +102,7 @@ DATABASES = {
         'NAME': 'monitoring-db',
         'USER': 'avanzo',
         'PASSWORD': 'isis2503',
-        'HOST': 'monitoring-db.c0kddpauyqft.us-east-1.rds.amazonaws.com',
+        'HOST': 'avanzofallayreyes:us-central1:isis2503-talleres-db',
         'PORT': '5432',
     }
 }
