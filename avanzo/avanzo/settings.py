@@ -98,8 +98,12 @@ LOGGING = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'monitoringDB',
+        'USER': 'avanzo',
+        'PASSWORD': 'isis2503',
+        'HOST': 'monitoring-db.c0kddpauyqft.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
