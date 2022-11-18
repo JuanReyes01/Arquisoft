@@ -28,9 +28,9 @@ class Auth0(BaseOAuth2):
         user = request.user 
         auth0user = user.social_auth.get(provider="auth0")
         accessToken = auth0user.extra_data['access_token']
-        url = "https://syntax-error.us.auth0.com/userinfo" 
+        url = "https://isis2503-ivan-alfonso.auth0.com/userinfo" 
         headers = {'authorization': 'Bearer ' + accessToken}
         resp = requests.get(url, headers=headers)
         userinfo = resp.json()
-        role = userinfo['syntax-error.us.auth0.com/role']
+        role = userinfo['isis2503-ivan-alfonso.com/role']
         return (role)
