@@ -6,3 +6,14 @@ GET request - 'archivoSolicitud'
 GET request - 'archivoSolicitud' - ID Object: 1
 POST request - 'archivoSolicitud' - File: 2022-20-AE-HT8.pdf - Path: /2022-20-AE-HT8.pdf
 POST request - 'archivoSolicitud' - File: 20222-caso3_s1ys3.pdf - Path: /20222-caso3_s1ys3.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220.pdf
+POST request - 'archivoSolicitud' - File: Apuntes - ANADEC.pdf - Path: /Apuntes%20-%20ANADEC.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_Gsy409W.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_JVrpl5B.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_bheetgd.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_i1RJy1w.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_dnAo85y.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_z9PXlRm.pdf
+POST request - 'archivoSolicitud' - File: Apuntes - ANADEC.pdf - Path: /Apuntes%20-%20ANADEC_o6gvUVe.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_LPoaHwR.pdf
+POST request - 'archivoSolicitud' - File: Apuntes - ANADEC.pdf - Path: /Apuntes%20-%20ANADEC_naePMmE.pdf
