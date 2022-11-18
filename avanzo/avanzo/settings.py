@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-q@16^s*!f$v88yhxoois2g0sg*!bxyx%l1=i08_-nfn=99usuu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'solicitudes',
     'archivosSolicitud',
     'criterios',
-    'usuarios',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
@@ -98,7 +98,7 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -148,11 +148,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/" 
-LOGOUT_REDIRECT_URL = "https://syntax-error.auth0.com/v2/logout?returnTo=http%3A%2F%2F34.133.95.185:8080" 
+LOGOUT_REDIRECT_URL = "https://isis2503-ivan-alfonso.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
-SOCIAL_AUTH_AUTH0_DOMAIN = 'syntax-error.us.auth0.com' 
-SOCIAL_AUTH_AUTH0_KEY = '3AgsmFRAsuK42nWZVvLlVQV7abhicHGs' 
-SOCIAL_AUTH_AUTH0_SECRET = 'GFXtJkBX1c5CRXSK796HDvu22sGTgzQNPsgRyCBTfBXk7ppgksLd_WJbXMz7ti1P' 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-ivan-alfonso.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = 'W8g5KLG4s2ogftLqVDrGwd3xD7JafO0S' 
+SOCIAL_AUTH_AUTH0_SECRET = '7MVp47TDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' 
 SOCIAL_AUTH_AUTH0_SCOPE = [ 
                             'openid', 
                             'profile',
