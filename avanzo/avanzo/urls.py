@@ -18,13 +18,13 @@ from django.urls import path, include
 from archivosSolicitud import views
 
 urlpatterns = [
-    path('home/', admin.site.urls),
+    path('', include('archivosSolicitud.urls')),
     #path('home/',  views.home),
-    path('documentos/', include('documentos.urls')),
+    #path('documentos/', include('documentos.urls')),
     #path('upload/', views.upload),
-    path('archivos/', include('archivosSolicitud.urls')),
+    #path('archivos/', include('archivosSolicitud.urls')),
     #path('solicitudes/', include('solicitudes.urls')),
-    path('criterios/', include('criterios.urls')),
-    path('clientes/', include('clientes.urls')),
+    #path('criterios/', include('criterios.urls')),
+    #path('clientes/', include('clientes.urls')),
 ]
 

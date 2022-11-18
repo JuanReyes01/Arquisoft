@@ -1,11 +1,13 @@
-from random import randint
 import time
+from random import randint
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.core import serializers
 import json
+
+from documentos.models import Documento
 
 from .logic import archivo_logic as al
 
@@ -25,20 +27,27 @@ from .logic import archivo_logic as al
 def upload(request):
     context = {}
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        file_system_storage = FileSystemStorage()
-        file_name = file_system_storage.save(uploaded_file.name, uploaded_file)
-        url = file_system_storage.url(file_name)
-        context['url'] = url
+        documento = Documento(
+        nombre="", 
+        tipo="", 
+        fecha=None, 
+        saldo=0, 
+        cuentaBancaria=0, 
+        cliente=None)
+        #uploaded_file = request.POST.get('document',documento)
+        #file_system_storage = FileSystemStorage()
+        #file_name = file_system_storage.save(uploaded_file.name, uploaded_file)
+        #url = file_system_storage.url(file_name)
+        #context['url'] = url
 
-        json_archivo = {
-            "nombre": uploaded_file.name,
-            "archivo": url
-        }
+        #json_archivo = {
+        #   "nombre": uploaded_file.name,
+        #   "archivo": url
+        #}
         t = randint(150,180)
         time.sleep(t)
-        archivo_dto = al.create_archivo(json_archivo)
-        archivo = serializers.serialize('json', [archivo_dto,])
+        #archivo_dto = al.create_archivo(json_archivo)
+        #archivo = serializers.serialize('json', [archivo_dto,])
 
     return render(request, 'avanzo/base.html') # tiene que ser un render! por algo de seguridad de Django -> csrf_token
     # se pueden mandar variables al html! -> context
