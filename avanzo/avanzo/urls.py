@@ -26,5 +26,7 @@ urlpatterns = [
     #path('solicitudes/', include('solicitudes.urls')),
     path('criterios/', include('criterios.urls')),
     path('clientes/', include('clientes.urls')),
+    path(r'', include('django.contrib.auth.urls')),
+    path(r'', include('social_django.urls')),
 ]
 
