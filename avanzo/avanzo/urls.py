@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from archivosSolicitud import views
+from . import views as vw
 
 urlpatterns = [
+    #path('', vw.base)
     path('', include('archivosSolicitud.urls')),
     #path('home/',  views.home),
     #path('documentos/', include('documentos.urls')),

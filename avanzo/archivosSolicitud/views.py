@@ -25,6 +25,10 @@ logger = logging.getLogger(__name__)
 #     # se pueden mandar variables al html! -> context
 
 context = {}
+
+def home(request):
+    return render(request, 'avanzo/loginpage.html')
+
 def upload(request):
     f = open('docs/logs.txt', 'a')
     if request.method == 'POST':
