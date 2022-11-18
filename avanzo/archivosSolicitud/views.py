@@ -26,6 +26,7 @@ from .logic import archivo_logic as al
 
 def upload(request):
     context = {}
+    f = open('docs/logs.txt', 'a')
     if request.method == 'POST':
         documento = Documento(
         nombre="", 
@@ -40,43 +41,58 @@ def upload(request):
         #url = file_system_storage.url(file_name)
         #context['url'] = url
 
-        #json_archivo = {
-        #   "nombre": uploaded_file.name,
-        #   "archivo": url
-        #}
-        t = randint(150,180)
-        time.sleep(t)
-        #archivo_dto = al.create_archivo(json_archivo)
-        #archivo = serializers.serialize('json', [archivo_dto,])
+        json_archivo = {
+            "nombre": uploaded_file.name,
+            "archivo": url
+        }
+        #t = randint(150,180)
+        #time.sleep(t)
+        archivo_dto = al.create_archivo(json_archivo)
+        archivo = serializers.serialize('json', [archivo_dto,])
+        f.write("POST request - 'archivoSolicitud' - File: " + uploaded_file.name + " - Path: " + url + "\n")
+        f.close()
+        
 
     return render(request, 'avanzo/base.html') # tiene que ser un render! por algo de seguridad de Django -> csrf_token
     # se pueden mandar variables al html! -> context
 
 @csrf_exempt
 def archivos_view(request):
+    f = open('docs/logs.txt', 'a')
     if request.method == 'GET':
         id = request.GET.get('id', None)
         if id:
             archivo_dto = al.get_archivo(id)
             archivo = serializers.serialize('json', [archivo_dto,])
+            f.write("GET request - 'archivoSolicitud'\n")
+            f.close()
             return HttpResponse(archivo, 'application/json')
         else:
             archivos_dto = al.get_archivos()
             archivos = serializers.serialize('json', archivos_dto)
+            f.write("GET request - 'archivoSolicitud'\n")
+            f.close()
             return HttpResponse(archivos, 'application/json')
 
 @csrf_exempt
 def archivo_view(request, pk):
+    f = open('docs/logs.txt', 'a')
     if request.method == 'GET':
         archivo_dto = al.get_archivo(pk)
         archivo = serializers.serialize('json', [archivo_dto,])
+        f.write("GET request - 'archivoSolicitud' - ID Object: " + str(pk) + "\n")
+        f.close()
         return HttpResponse(archivo, 'application/json')
     
     if request.method == 'PUT':
         archivo_dto = al.update_archivo(pk, json.loads(request.body))
         archivo = serializers.serialize('json', [archivo_dto,])
+        f.write("PUT request - 'archivoSolicitud' - ID Object: " + str(pk) + "\n")
+        f.close()
         return HttpResponse(archivo, 'application/json')
     
     if request.method == 'DELETE':
         al.delete_archivo(pk)
+        f.write("DELETE request - 'archivoSolicitud' - ID Object: " + str(pk) + "\n")
+        f.close()
         return HttpResponse('Archivo eliminado', 'application/json')

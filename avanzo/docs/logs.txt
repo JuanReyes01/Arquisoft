@@ -1,0 +1,8 @@
+POST request - 'archivoSolicitud' - File: HT#8.docxPath: /HT%238.docx
+POST request - 'archivoSolicitud' - File: 2022-20-AE-HT8.pdfPath: /2022-20-AE-HT8_uigvVaf.pdf
+GET request - 'archivoSolicitud'
+GET request - 'archivoSolicitud'
+GET request - 'archivoSolicitud'
+GET request - 'archivoSolicitud' - ID Object: 1
+POST request - 'archivoSolicitud' - File: 2022-20-AE-HT8.pdf - Path: /2022-20-AE-HT8.pdf
+POST request - 'archivoSolicitud' - File: 20222-caso3_s1ys3.pdf - Path: /20222-caso3_s1ys3.pdf
