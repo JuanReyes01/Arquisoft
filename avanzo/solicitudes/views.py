@@ -7,7 +7,7 @@ import json
 
 from .logic import solicitudes_logic as st
 from django.contrib.auth.decorators import login_required
-from monitoring.auth0backend import getRole
+from avanzo.auth0backend import getRole
 
 # Create your views here.
 

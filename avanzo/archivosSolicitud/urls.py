@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     #path('', views.archivos_view, name='archivos'),
-    path('', views.upload, name='upload'),
+    path('archSolic/', views.upload, name='upload'),
     path('<str:url>', views.archivo_view, name='archivo'),
 ]
