@@ -148,15 +148,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/" 
-LOGOUT_REDIRECT_URL = "https://isis2503-ivan-alfonso.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080" 
+LOGOUT_REDIRECT_URL = "https://syntax-error.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F34.173.110.74:8080" 
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
-SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-ivan-alfonso.auth0.com' 
-SOCIAL_AUTH_AUTH0_KEY = 'W8g5KLG4s2ogftLqVDrGwd3xD7JafO0S' 
-SOCIAL_AUTH_AUTH0_SECRET = '7MVp47TDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'syntax-error.us.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = '3AgsmFRAsuK42nWZVvLlVQV7abhicHGs' 
+SOCIAL_AUTH_AUTH0_SECRET = 'GFXtJkBX1c5CRXSK796HDvu22sGTgzQNPsgRyCBTfBXk7ppgksLd_WJbXMz7ti1P' 
 SOCIAL_AUTH_AUTH0_SCOPE = [ 
                             'openid', 
                             'profile',
                             'email',
                             'role', ] 
-AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0',
+AUTHENTICATION_BACKENDS = { 'avanzo.auth0backend.Auth0',
                             'django.contrib.auth.backends.ModelBackend', }
