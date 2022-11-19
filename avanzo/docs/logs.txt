@@ -17,3 +17,13 @@ POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-20
 POST request - 'archivoSolicitud' - File: Apuntes - ANADEC.pdf - Path: /Apuntes%20-%20ANADEC_o6gvUVe.pdf
 POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220_LPoaHwR.pdf
 POST request - 'archivoSolicitud' - File: Apuntes - ANADEC.pdf - Path: /Apuntes%20-%20ANADEC_naePMmE.pdf
+POST request - 'archivoSolicitud' - File: LyM-TP2-202220.pdf - Path: /LyM-TP2-202220.pdf
+GET request - 'archivoSolicitud' - ID Object: stumpy
+GET request - 'archivoSolicitud' - ID Object: stumpy
+GET request - 'archivoSolicitud'
+GET request - 'archivoSolicitud' - ID Object: Clientes.docx /Clientes.docx
+GET request - 'archivoSolicitud' - ID Object: 638019003586345537-1000372645CC-RM3398560.pdf
+GET request to MODIFY FILE - 'archivoSolicitud' - ID Object: 1
+GET request to MODIFY FILE - 'archivoSolicitud' - ID Object: 3
+GET request to MODIFY FILE - 'archivoSolicitud' - ID Object: 8
+GET request to MODIFY FILE - 'archivoSolicitud' - ID Object: 1

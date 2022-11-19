@@ -5,7 +5,7 @@ def get_archivos():
     return archivos
 
 def get_archivo(archivo_pk):
-    archivo = ArchivoSolicitud.objects.get(pk=archivo_pk)
+    archivo = ArchivoSolicitud.objects.get(nombre=archivo_pk)
     return archivo
 
 def create_archivo(pArchivo):
