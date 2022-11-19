@@ -1,11 +1,12 @@
 import time
 from random import randint
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.core import serializers
 import json
+from .models import ArchivoSolicitud
 from documentos.models import Documento
 from .logic import archivo_logic as al
 import logging
@@ -28,14 +29,6 @@ context = {}
 def upload(request):
     f = open('docs/logs.txt', 'a')
     if request.method == 'POST':
-        # documento = Documento(
-        # nombre="", 
-        # #tipo="", 
-        # #fecha=None, 
-        # #saldo=0, 
-        # #cuentaBancaria=0, 
-        # #cliente=None
-        # )
         uploaded_file = request.FILES['document']
         #uploaded_file = request.POST.get('document', documento)
         file_system_storage = FileSystemStorage()
@@ -56,46 +49,28 @@ def upload(request):
         
 
     return render(request, 'avanzo/base.html') # tiene que ser un render! por algo de seguridad de Django -> csrf_token
-    # se pueden mandar variables al html! -> context
+    # se pueden mandar variables a html! -> context
 
-@csrf_exempt
 def archivos_view(request):
-    f = open('docs/logs.txt', 'a')
-    if request.method == 'GET':
-        id = request.GET.get('id', None)
-        if id:
-            archivo_dto = al.get_archivo(id)
-            archivo = serializers.serialize('json', [archivo_dto,])
-            f.write("GET request - 'archivoSolicitud'\n")
-            f.close()
-            return HttpResponse(archivo, 'application/json')
-        else:
-            archivos_dto = al.get_archivos()
-            archivos = serializers.serialize('json', archivos_dto)
-            f.write("GET request - 'archivoSolicitud'\n")
-            f.close()
-            return HttpResponse(archivos, 'application/json')
+    archivos_list = ArchivoSolicitud.objects.all()
+    archivo_pk = None
+    return render(
+                  request,
+                  'avanzo/file_selection.html',
+                  {'archivos_list': archivos_list}
+                 )
 
 @csrf_exempt
-def archivo_view(request, url):
-    print(url)
+def archivo_view(request, pk):
     f = open('docs/logs.txt', 'a')
-    # requested_file = request.FILES['url']
-    # file_system_storage = FileSystemStorage()
-    # file_name = file_system_storage.save(requested_file.name, requested_file)
-    # off_name = None
-    # off_url = None
-        
-    archivo = {
-        "nombre": "stumpy",
-        "archivo": "www"
-    }
-    #archivo_dto = al.get_archivo(pk)
-    #archivo = serializers.serialize('json', [archivo_dto,])
-    #f.write("GET request - 'archivoSolicitud' - ID Object: " + off_name + "\n")
-    #f.close()
-    return HttpResponse(archivo, 'application/json')
+    post = get_object_or_404(ArchivoSolicitud, id=request.POST.get('post_id'))
+
+    f.write("GET request to MODIFY FILE - 'archivoSolicitud' - ID Object: " + str(post.pk) + "\n")
+    f.close()
+    return HttpResponse(post, 'application/json')
     
+@csrf_exempt
+def updateDelete_view(request, pk):
     if request.method == 'PUT':
         archivo_dto = al.update_archivo(pk, json.loads(request.body))
         archivo = serializers.serialize('json', [archivo_dto,])
